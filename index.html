@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>江西知行力信息科技有限公司 | 一站式产教融合解决方案提供商</title>
+  <meta name="description" content="江西知行力信息科技有限公司，深耕产教融合领域，为院校及相关单位提供师资供给、专业委托培养、产业学院共建运营、专家共建合作、实习实训等一站式教育教学综合解决方案。" />
+  <style>
+    :root {
+      --bg: #070b14;
+      --panel: rgba(13, 22, 38, .78);
+      --panel-strong: rgba(16, 29, 52, .92);
+      --line: rgba(125, 218, 255, .18);
+      --text: #eef7ff;
+      --muted: #9db1c7;
+      --cyan: #2dd4ff;
+      --blue: #2f7cff;
+      --green: #47f0b5;
+      --gold: #f8c45c;
+      --white: #ffffff;
+      --shadow: 0 24px 80px rgba(0, 0, 0, .38);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 16% 18%, rgba(47, 124, 255, .22), transparent 30%),
+        radial-gradient(circle at 78% 6%, rgba(71, 240, 181, .14), transparent 26%),
+        linear-gradient(180deg, #060a12 0%, #081322 45%, #070b14 100%);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .page-shell {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+
+    .page-shell::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.95), rgba(0,0,0,.16));
+      z-index: 0;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 10, 18, .82);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 220px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(45, 212, 255, .5);
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      color: var(--cyan);
+      font-weight: 800;
+      letter-spacing: 0;
+      background: linear-gradient(135deg, rgba(47, 124, 255, .24), rgba(71, 240, 181, .13));
+      box-shadow: 0 0 30px rgba(45, 212, 255, .18);
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 17px;
+      letter-spacing: 0;
+      line-height: 1.2;
+    }
+
+    .brand-text span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: #c9d8e9;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover { color: var(--cyan); }
+
+    .nav-cta,
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(45, 212, 255, .42);
+      color: var(--text);
+      background: linear-gradient(135deg, rgba(47, 124, 255, .82), rgba(45, 212, 255, .72));
+      padding: 10px 18px;
+      font-weight: 700;
+      box-shadow: 0 14px 40px rgba(47, 124, 255, .28);
+    }
+
+    .btn.secondary {
+      background: rgba(255, 255, 255, .04);
+      border-color: rgba(255, 255, 255, .18);
+      box-shadow: none;
+    }
+
+    .hero {
+      min-height: calc(100vh - 74px);
+      display: grid;
+      align-items: center;
+      padding: 76px 0 46px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
+      gap: 44px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      background: var(--cyan);
+      box-shadow: 0 0 18px var(--cyan);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    .hero h1 {
+      font-size: clamp(38px, 5.8vw, 74px);
+      line-height: 1.05;
+      margin-bottom: 22px;
+      letter-spacing: 0;
+    }
+
+    .hero h1 span {
+      color: transparent;
+      background: linear-gradient(90deg, #ffffff, var(--cyan) 48%, var(--green));
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .hero-lead {
+      font-size: clamp(16px, 2vw, 21px);
+      color: #c8d8ea;
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 700px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .045);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 22px;
+      color: var(--white);
+      line-height: 1.15;
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 560px;
+      border: 1px solid rgba(45, 212, 255, .22);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #07101d;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      object-fit: cover;
+      opacity: .6;
+      filter: saturate(1.15) contrast(1.05);
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(7, 11, 20, .04), rgba(7, 11, 20, .86)),
+        linear-gradient(90deg, rgba(47, 124, 255, .4), transparent 48%);
+    }
+
+    .signal-card {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
+      z-index: 2;
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: var(--radius);
+      background: rgba(6, 12, 22, .78);
+      backdrop-filter: blur(16px);
+    }
+
+    .signal-card strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .signal-card p {
+      margin: 0;
+      color: #b7c8db;
+      font-size: 14px;
+    }
+
+    section { padding: 92px 0; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 34px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.16;
+      margin-bottom: 0;
+    }
+
+    .section-head p {
+      max-width: 560px;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .kicker {
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      opacity: .65;
+    }
+
+    .card h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      color: #06111f;
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+      font-weight: 900;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: .86fr 1.14fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .image-panel {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      min-height: 420px;
+      background: #0a1422;
+      box-shadow: var(--shadow);
+    }
+
+    .image-panel img {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      opacity: .76;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 18px;
+      padding: 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+
+    .step b {
+      color: var(--cyan);
+      font-size: 13px;
+    }
+
+    .step h3 {
+      margin-bottom: 6px;
+      font-size: 19px;
+    }
+
+    .step p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .business-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .business {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(14, 25, 44, .9), rgba(8, 15, 27, .86));
+      padding: 26px;
+      min-height: 312px;
+    }
+
+    .business.featured {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-flex;
+      color: var(--green);
+      border: 1px solid rgba(71, 240, 181, .3);
+      background: rgba(71, 240, 181, .08);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .business h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .business p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .list {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: #d7e6f7;
+      font-size: 14px;
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .7em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan);
+    }
+
+    .eco {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .partner {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel-strong);
+      padding: 28px;
+    }
+
+    .partner h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .partner p { color: var(--muted); }
+
+    .advantage {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      counter-reset: adv;
+    }
+
+    .advantage .card {
+      min-height: 250px;
+      counter-increment: adv;
+    }
+
+    .advantage .card::after {
+      content: "0" counter(adv);
+      position: absolute;
+      right: 18px;
+      top: 12px;
+      color: rgba(255,255,255,.08);
+      font-size: 54px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .future {
+      border: 1px solid rgba(45, 212, 255, .24);
+      border-radius: var(--radius);
+      padding: 36px;
+      background:
+        linear-gradient(135deg, rgba(47, 124, 255, .22), rgba(71, 240, 181, .08)),
+        rgba(8, 16, 29, .9);
+      box-shadow: var(--shadow);
+    }
+
+    .future-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .contact {
+      padding-bottom: 0;
+    }
+
+    .contact-band {
+      border-top: 1px solid var(--line);
+      background: rgba(3, 7, 14, .72);
+      padding: 56px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .contact-grid h2 {
+      font-size: clamp(26px, 3vw, 38px);
+      margin-bottom: 8px;
+    }
+
+    .contact-grid p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 28px 0;
+      color: #7f94aa;
+      font-size: 13px;
+      background: #050811;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .hero-grid, .split, .business.featured, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-visual, .hero-visual img { min-height: 420px; }
+      .cards, .advantage { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 680px) {
+      .container { width: min(100% - 28px, 1180px); }
+      .nav { height: 66px; }
+      .brand-text span { display: none; }
+      .nav-cta { display: none; }
+      .hero { padding-top: 48px; }
+      .metric-row, .cards, .business-grid, .eco, .advantage, .future-grid {
+        grid-template-columns: 1fr;
+      }
+      .business.featured { grid-column: span 1; }
+      .section-head { display: block; }
+      .step { grid-template-columns: 1fr; }
+      section { padding: 68px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="#top" aria-label="江西知行力信息科技有限公司">
+          <div class="brand-mark">知</div>
+          <div class="brand-text">
+            <strong>江西知行力信息科技有限公司</strong>
+            <span>一站式产教融合解决方案提供商</span>
+          </div>
+        </a>
+        <nav class="nav-links" aria-label="主导航">
+          <a href="#position">公司定位</a>
+          <a href="#solution">解决方案</a>
+          <a href="#business">核心业务</a>
+          <a href="#ecosystem">合作生态</a>
+          <a href="#advantage">服务优势</a>
+        </nav>
+        <a class="nav-cta" href="#contact">洽谈合作</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">ZhiXingLi · Industry Education Integration</div>
+            <h1>知行合一<br><span>产教融汇</span></h1>
+            <p class="hero-lead">江西知行力信息科技有限公司深耕产教融合领域，聚焦教育服务提质升级，致力于为院校及相关单位提供全方位、专业化的教育教学综合解决方案。</p>
+            <div class="hero-actions">
+              <a class="btn" href="#business">查看核心业务</a>
+              <a class="btn secondary" href="#solution">了解服务体系</a>
+            </div>
+            <div class="metric-row" aria-label="公司能力概览">
+              <div class="metric">
+                <strong>全流程</strong>
+                <span>覆盖师资供给、人才培养、实践落地</span>
+              </div>
+              <div class="metric">
+                <strong>五大支柱</strong>
+                <span>产业学院、委托培养、专家共建等业务矩阵</span>
+              </div>
+              <div class="metric">
+                <strong>江西深耕</strong>
+                <span>贴合本地产业布局与职业教育发展需求</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual" aria-label="产教融合科技视觉">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=85" alt="科技教育协作场景" />
+            <div class="signal-card">
+              <strong>您身边的产教融合战略合作伙伴</strong>
+              <p>连接教育链、人才链与产业链，推动学校、企业与学生在真实产业场景中共同成长。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="position">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="kicker">COMPANY POSITIONING</div>
+              <h2>从战略机遇到落地服务</h2>
+            </div>
+            <p>在教育强国、科技强国、人才强国建设加速推进的背景下，产教融合已成为职业教育高质量发展的关键引擎。</p>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <div class="icon">政</div>
+              <h3>政策顶层设计明确</h3>
+              <p>职业教育教学关键要素改革持续深化，教育、科技、人才一体发展格局正在形成。</p>
+            </article>
+            <article class="card">
+              <div class="icon">产</div>
+              <h3>产业升级加速</h3>
+              <p>先进制造、人工智能等新兴产业崛起，对高质量、复合型、创新型技术技能人才提出更高要求。</p>
+            </article>
+            <article class="card">
+              <div class="icon">赣</div>
+              <h3>江西机遇正劲</h3>
+              <p>江西推进职普融通、产教融合、科教融汇，为本地教育服务企业带来广阔发展空间。</p>
+            </article>
+            <article class="card">
+              <div class="icon">融</div>
+              <h3>知行力应运而生</h3>
+              <p>以专业能力整合多方资源，成为推动江西乃至全国产教融合高质量发展的中坚力量。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="challenge">
+        <div class="container split">
+          <div class="image-panel">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1100&q=85" alt="数字网络与产业连接" />
+          </div>
+          <div>
+            <div class="section-head">
+              <div>
+                <div class="kicker">INDUSTRY INSIGHT</div>
+                <h2>打通教育与产业的最后一公里</h2>
+              </div>
+            </div>
+            <div class="timeline">
+              <article class="step">
+                <b>院校挑战</b>
+                <div>
+                  <h3>专业与产业需求脱节</h3>
+                  <p>专业调整滞后、课程内容陈旧，导致人才培养与岗位能力要求之间存在明显错位。</p>
+                </div>
+              </article>
+              <article class="step">
+                <b>院校挑战</b>
+                <div>
+                  <h3>实践教学资源匮乏</h3>
+                  <p>校内实训基地与真实生产环境衔接不足，学生缺乏高质量、可评价的实践机会。</p>
+                </div>
+              </article>
+              <article class="step">
+                <b>企业痛点</b>
+                <div>
+                  <h3>招聘成本高、培养风险大</h3>
+                  <p>社会招聘需要大量岗前培训，技能不匹配与稳定性不足让企业难以快速满足用人需求。</p>
+                </div>
+              </article>
+              <article class="step">
+                <b>协同难题</b>
+                <div>
+                  <h3>参与办学动力与能力不足</h3>
+                  <p>校企合作常出现“校热企冷”，缺少长效的资源协同、成本分担和利益共享机制。</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="kicker">ZHIXINGLI SOLUTION</div>
+              <h2>构建一站式服务生态</h2>
+            </div>
+            <p>江西知行力扮演“连接器”和“赋能者”的角色，整合优质教育与产业资源，形成从源头到出口的闭环服务系统。</p>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <div class="icon">师</div>
+              <h3>上游 · 师资供给</h3>
+              <p>通过师资派遣服务和专家共建合作，引入具备丰富实战经验的行业专家与企业导师。</p>
+            </article>
+            <article class="card">
+              <div class="icon">育</div>
+              <h3>中游 · 人才培养</h3>
+              <p>开展专业委托培养与产业学院共建运营，将企业真实项目、标准和文化融入日常教学。</p>
+            </article>
+            <article class="card">
+              <div class="icon">训</div>
+              <h3>下游 · 实践落地</h3>
+              <p>统筹实习实训与就业推荐，帮助学生将知识转化为实操能力，提升就业竞争力。</p>
+            </article>
+            <article class="card">
+              <div class="icon">链</div>
+              <h3>全链路连接</h3>
+              <p>打通学校与企业围墙，让真实需求、真实场景、真实技术进入教育教学全过程。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="business">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="kicker">CORE BUSINESS</div>
+              <h2>五大支柱，精准赋能</h2>
+            </div>
+            <p>围绕院校专业建设、师资建设、人才培养与实践就业的关键环节，提供可组合、可落地、可持续的服务矩阵。</p>
+          </div>
+          <div class="business-grid">
+            <article class="business featured">
+              <div>
+                <span class="tag">产业学院共建运营</span>
+                <h3>打造产教融合的特区</h3>
+                <p>协助院校打造特色产业学院，提供从顶层设计、课程体系建设到日常运营管理的全生命周期服务。</p>
+              </div>
+              <ul class="list">
+                <li>校企共建管理机制，联合打造学院品牌</li>
+                <li>将企业项目、产业标准与岗位能力要求引入教学</li>
+                <li>解决专业设置与产业需求脱节、行业企业参与不足等问题</li>
+                <li>提升院校专业建设水平与区域核心竞争力</li>
+              </ul>
+            </article>
+            <article class="business">
+              <span class="tag">专业委托培养服务</span>
+              <h3>定制化人才培养快车道</h3>
+              <p>根据院校及企业个性化需求，提供从培养方案设计到教学实施、考核评价的一站式专业人才培养方案。</p>
+              <ul class="list">
+                <li>深入企业一线调研岗位能力标准</li>
+                <li>联合企业与专家制定订单式培养方案</li>
+                <li>全过程监控教学质量，实现专业对口、人岗匹配</li>
+              </ul>
+            </article>
+            <article class="business">
+              <span class="tag">专家共建合作</span>
+              <h3>汇聚智慧的智囊团</h3>
+              <p>整合企业技术骨干、行业领军人物、高校教授等专家资源，与院校共建高水平教学团队。</p>
+              <ul class="list">
+                <li>建立覆盖多行业、动态更新的专家资源池</li>
+                <li>推动校企专家结对开展教研</li>
+                <li>联合开发符合行业标准的精品课程与教材</li>
+              </ul>
+            </article>
+            <article class="business">
+              <span class="tag">实习实训统筹安排</span>
+              <h3>连接校园与职场的桥梁</h3>
+              <p>搭建实习实训对接平台，整合优质实习实训基地资源，提供标准化、规范化的一站式服务。</p>
+              <ul class="list">
+                <li>需求与岗位精准匹配</li>
+                <li>统一规范、安全保障与过程管理</li>
+                <li>引入企业评价，综合评定实践表现</li>
+              </ul>
+            </article>
+            <article class="business">
+              <span class="tag">师资派遣服务</span>
+              <h3>满足多元需求的人才库</h3>
+              <p>拥有覆盖多学科、多专业的师资资源库，按需匹配并派遣优质教学人才，为院校提供智力支持。</p>
+              <ul class="list">
+                <li>快速推荐最适合人选，缓解师资短缺与结构不合理</li>
+                <li>严格筛选与考核机制，保障教学质量</li>
+                <li>短期、长期、项目制等灵活派遣模式</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="ecosystem">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="kicker">PARTNER ECOSYSTEM</div>
+              <h2>合作生态与资源网络</h2>
+            </div>
+            <p>通过强强联合，整合国际教育、前沿产业和本地教育服务资源，为院校与企业提供更完整的培养与输送解决方案。</p>
+          </div>
+          <div class="eco">
+            <article class="partner">
+              <h3>江西新华国际教育咨询有限公司</h3>
+              <p>围绕中外留学项目联合运营，拓展国际视野，引进海外成熟职业教育理念与课程体系，打通从中职、高职到国外本科、硕士的升学通道。</p>
+              <ul class="list">
+                <li>提供留学与国际交流机会</li>
+                <li>推动教育资源国际化</li>
+                <li>培养具备全球竞争力的复合型人才</li>
+              </ul>
+            </article>
+            <article class="partner">
+              <h3>深圳市深造教育科技有限公司</h3>
+              <p>围绕产教融合、专业建设、实习实训与师资派遣服务开展深度合作，以深圳前沿产业资源结合江西本地需求，提供精准落地的定制化服务。</p>
+              <ul class="list">
+                <li>产业资源、教育经验与技术平台互补</li>
+                <li>专业共建、基地开发、双师型师资共享</li>
+                <li>全国资源能力与江西本地化服务协同</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="advantage">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="kicker">VALUE PROPOSITION</div>
+              <h2>选择知行力的四大理由</h2>
+            </div>
+          </div>
+          <div class="advantage">
+            <article class="card">
+              <h3>一站式服务能力</h3>
+              <p>提供从师资供给到实习实训的全流程服务，简化合作流程，提高沟通效率，让合作更省心。</p>
+            </article>
+            <article class="card">
+              <h3>强大的资源整合能力</h3>
+              <p>拥有广泛的行业资源、专家网络和合作院校网络，能够快速响应需求并高效整合资源。</p>
+            </article>
+            <article class="card">
+              <h3>专业团队与丰富经验</h3>
+              <p>核心团队深耕教育与产业领域，具备扎实的产教融合实践经验和项目落地能力。</p>
+            </article>
+            <article class="card">
+              <h3>聚焦江西，深耕本地</h3>
+              <p>深刻理解江西产业布局、教育现状与政策导向，提供真正贴合本地发展的定制化服务。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="future">
+        <div class="container future">
+          <div class="section-head">
+            <div>
+              <div class="kicker">FUTURE OUTLOOK</div>
+              <h2>携手共进，开创产教融合新篇章</h2>
+            </div>
+            <p>江西知行力将继续秉持“知行合一，产教融汇”的理念，紧跟国家战略与产业发展步伐，持续创新服务模式、提升服务品质。</p>
+          </div>
+          <div class="future-grid">
+            <article class="card">
+              <h3>深化服务内涵</h3>
+              <p>探索人工智能、大数据等新技术在教育中的应用，开发智能化、个性化服务产品。</p>
+            </article>
+            <article class="card">
+              <h3>拓展服务领域</h3>
+              <p>逐步拓展职业技能培训、企业员工继续教育及教育评估认证等领域。</p>
+            </article>
+            <article class="card">
+              <h3>扩大合作网络</h3>
+              <p>与更多行业龙头企业、国内外优质教育机构建立深度合作，构建开放、多元、共赢生态圈。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="contact-band">
+          <div class="container contact-grid">
+            <div>
+              <div class="kicker">CONTACT</div>
+              <h2>选择知行力，共创美好未来</h2>
+              <p>欢迎院校、企业及教育机构洽谈产教融合、专业共建、师资派遣、实习实训与国际教育合作。</p>
+            </div>
+            <a class="btn" href="mailto:contact@zhixingli.com">发送合作意向</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-row">
+        <span>© 江西知行力信息科技有限公司</span>
+        <span>知行合一 · 产教融汇 · 一站式产教融合解决方案</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
